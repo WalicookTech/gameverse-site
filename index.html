@@ -1,25 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GameVerse</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <script defer src="login.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-900">
-
-  <header class="flex justify-between items-center p-4 bg-gray-900 text-white">
-    <h1 class="text-xl font-bold">GameVerse</h1>
-    <div class="flex items-center gap-4">
-      <button id="login-btn" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-500">Login</button>
-      <div id="user-info" class="flex items-center space-x-2 hidden">
-        <img id="user-pic" class="w-8 h-8 rounded-full" alt="User" />
-        <span id="user-name" class="text-white font-medium"></span>
-      </div>
-    </div>
+<body>
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:1rem;background:#222;color:#fff;">
+    <h1>🎮 GameVerse</h1>
+    <div id="user-info" style="display:flex;align-items:center;gap:10px;"></div>
   </header>
 
-  <script type="module" src="login.js"></script>
+  <main style="padding:2rem;">
+    <h2>Welcome to GameVerse!</h2>
+    <p>Explore, play, and compete on the leaderboard!</p>
+  </main>
 </body>
 </html>
