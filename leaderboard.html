@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login – GameVerse</title>
+  <title>Leaderboard – GameVerse</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" href="favicon.png" type="image/png">
 </head>
@@ -14,20 +14,17 @@
       <a href="index.html">Home</a>
       <a href="game.html">Games</a>
       <a href="blog.html">Blog</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="login.html" class="active">Login</a>
+      <a href="leaderboard.html" class="active">Leaderboard</a>
+      <a href="login.html">Login</a>
     </nav>
   </header>
   <main>
-    <section class="login-section">
-      <h2>Login or Sign Up</h2>
-      <form>
-        <label for="email">Email</label>
-        <input type="email" id="email" required />
-        <label for="password">Password</label>
-        <input type="password" id="password" required />
-        <button type="submit">Login</button>
-      </form>
+    <section class="leaderboard">
+      <h2>🏆 Leaderboard</h2>
+      <table>
+        <thead><tr><th>Player</th><th>Game</th><th>Score</th><th>Date</th></tr></thead>
+        <tbody><tr><td>Alice</td><td>Pixel Racer</td><td>9820</td><td>2025-04-15</td></tr></tbody>
+      </table>
     </section>
   </main>
   <footer><p>&copy; 2025 GameVerse</p></footer>
