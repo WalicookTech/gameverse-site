@@ -1,13 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameVerse - Home</title>
-  <link rel="icon" href="favicon.png" />
+  <title>GameVerse</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Welcome to GameVerse</h1>
-  <a href="login.html">Login</a>
+<body class="bg-gray-100 text-gray-900">
+
+  <header class="flex justify-between items-center p-4 bg-gray-900 text-white">
+    <h1 class="text-xl font-bold">GameVerse</h1>
+    <div class="flex items-center gap-4">
+      <button id="login-btn" class="bg-blue-600 px-3 py-1 rounded hover:bg-blue-500">Login</button>
+      <div id="user-info" class="flex items-center space-x-2 hidden">
+        <img id="user-pic" class="w-8 h-8 rounded-full" alt="User" />
+        <span id="user-name" class="text-white font-medium"></span>
+      </div>
+    </div>
+  </header>
+
+  <script type="module" src="login.js"></script>
 </body>
 </html>
