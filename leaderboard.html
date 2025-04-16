@@ -2,24 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Leaderboard</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
-  <script defer src="login.js"></script>
-  <script defer src="leaderboard.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard - GameVerse</title>
+  <link rel="icon" href="favicon.png" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+  <script src="leaderboard.js" defer></script>
 </head>
 <body>
-  <header style="display:flex;justify-content:space-between;align-items:center;padding:1rem;background:#222;color:#fff;">
-    <h1>🏆 Leaderboard</h1>
-    <div id="user-info" style="display:flex;align-items:center;gap:10px;"></div>
-  </header>
-
-  <main style="padding:2rem;">
-    <h2>Live Leaderboard</h2>
-    <div id="leaderboard" style="margin-top:1rem;"></div>
-  </main>
+  <h1>Leaderboard</h1>
+  <label for="filterGame">Filter by game:</label>
+  <input type="text" id="filterGame" placeholder="Enter game name..." />
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Game</th>
+        <th>Score</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody id="leaderboard-body">
+      <!-- Scores will be injected here -->
+    </tbody>
+  </table>
 </body>
 </html>

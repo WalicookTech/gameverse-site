@@ -1,4 +1,4 @@
-// leaderboard.js with real-time updates
+// leaderboard.js
 
 // TODO: Replace with your Firebase config
 const firebaseConfig = {
@@ -13,25 +13,32 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-const leaderboardBody = document.getElementById("leaderboardBody");
+const leaderboardBody = document.getElementById("leaderboard-body");
+const filterGameInput = document.getElementById("filterGame");
 
-function listenForScores() {
-  db.collection("scores")
-    .orderBy("score", "desc")
-    .onSnapshot((snapshot) => {
-      leaderboardBody.innerHTML = "";
-      snapshot.forEach((doc) => {
-        const { username, game, score, timestamp } = doc.data();
+function renderScores(filterGame = "") {
+  leaderboardBody.innerHTML = "";
+  let query = db.collection("scores").orderBy("score", "desc").limit(100);
+
+  query.get().then(snapshot => {
+    snapshot.forEach(doc => {
+      const { username, game, score, timestamp } = doc.data();
+      if (!filterGame || game.toLowerCase().includes(filterGame.toLowerCase())) {
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${username}</td>
+          <td>${username || "Anonymous"}</td>
           <td>${game}</td>
           <td>${score}</td>
           <td>${timestamp?.toDate().toLocaleString() || ""}</td>
         `;
         leaderboardBody.appendChild(row);
-      });
+      }
     });
+  });
 }
 
-listenForScores();
+filterGameInput?.addEventListener("input", () => {
+  renderScores(filterGameInput.value);
+});
+
+window.onload = () => renderScores();
