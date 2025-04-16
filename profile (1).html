@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile | GameVerse</title>
+  <link rel="icon" href="favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="js/profile.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">My Profile</h1>
+    <div id="user-info" class="flex items-center gap-3"></div>
+  </header>
+
+  <main class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow mt-6 space-y-6">
+    <section id="profile-section">
+      <h2 class="text-xl font-semibold mb-2">Profile Info</h2>
+      <div class="flex items-center gap-4">
+        <img id="avatar" src="" class="w-20 h-20 rounded-full border" alt="Avatar">
+        <div>
+          <div id="username" class="font-semibold text-lg"></div>
+          <label class="block mt-2">Bio:
+            <textarea id="bio" class="mt-1 p-2 border rounded w-full" rows="3" placeholder="Write something about yourself..."></textarea>
+          </label>
+          <button id="save-bio" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Save Bio</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold mb-2">Your Scores</h2>
+      <ul id="score-list" class="space-y-2 text-sm"></ul>
+    </section>
+  </main>
+
+</body>
+</html>
