@@ -1,55 +1,52 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Details | GameVerse</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png">
-  </head>
-  <body class="bg-gray-900 text-white font-sans">
-    <header class="bg-gray-800 shadow-lg sticky top-0 z-50">
-      <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-        <h1 class="text-2xl font-bold">🎮 GameVerse</h1>
-        <nav class="space-x-4">
-          <a href="index.html" class="hover:text-indigo-400">Home</a>
-          <a href="blog.html" class="hover:text-indigo-400">Blog</a>
-          <a href="leaderboard.html" class="hover:text-indigo-400">Leaderboard</a>
-          <a href="login.html" class="bg-indigo-600 hover:bg-indigo-700 px-3 py-1 rounded">Login</a>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameVerse - Game Details</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="icon" href="favicon.png">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+  <header class="bg-gray-800 p-4 flex justify-between items-center shadow-md">
+    <h1 class="text-2xl font-bold">🎮 GameVerse</h1>
+    <nav class="space-x-4">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="leaderboard.html" class="hover:underline">Leaderboard</a>
+      <a href="submit.html" class="hover:underline">Submit Score</a>
+      <a href="profile.html" class="hover:underline">Profile</a>
+    </nav>
+  </header>
 
-    <main class="max-w-4xl mx-auto px-4 py-10">
-      <h2 class="text-3xl font-bold mb-4">🚀 Rocket Rally</h2>
-      <video controls class="w-full rounded-lg shadow-md mb-4">
-        <source src="trailer.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p class="text-gray-300 mb-6">Blast off in this high-speed space racing game. Compete for the fastest lap and claim your place on the leaderboard.</p>
-      
-      <div class="mb-6">
-        <button class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded text-white font-semibold transition">Download</button>
+  <main class="max-w-4xl mx-auto p-6 space-y-8">
+    <section>
+      <h2 class="text-3xl font-bold mb-2">Epic Adventure Game</h2>
+      <p class="text-gray-300 mb-4">Explore dungeons, collect treasures, and defeat monsters in this action-packed retro RPG!</p>
+      <div class="aspect-w-16 aspect-h-9 mb-4">
+        <iframe class="w-full rounded-lg" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
       </div>
-
-      <div class="bg-gray-800 rounded-xl p-4 mb-6">
-        <h3 class="text-xl font-semibold mb-2">⭐ Ratings & Reviews</h3>
-        <p class="text-sm text-gray-400">"Absolutely addictive! Best racing game of the year." - Player123</p>
+      <div class="flex items-center space-x-4 mb-4">
+        <span>⭐ 4.8/5</span>
+        <a href="#" class="bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition">Download</a>
       </div>
+    </section>
 
-      <div class="bg-gray-800 rounded-xl p-4">
-        <h3 class="text-xl font-semibold mb-2">🏆 Top Scores</h3>
-        <ul class="text-sm text-gray-400 space-y-1">
-          <li>🚀 AlphaStar — 12,340</li>
-          <li>🔥 BoostedBoi — 11,980</li>
-          <li>🛰️ SpeedRunnerX — 11,870</li>
-        </ul>
-      </div>
-    </main>
+    <section>
+      <h3 class="text-2xl font-semibold mb-4">💬 Comments</h3>
+      <form id="comment-form" class="space-y-4 bg-gray-800 p-4 rounded">
+        <input type="text" id="comment-name" placeholder="Your name" class="w-full p-2 rounded bg-gray-700 text-white" required />
+        <textarea id="comment-text" rows="3" placeholder="Your comment" class="w-full p-2 rounded bg-gray-700 text-white" required></textarea>
+        <button type="submit" class="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition">Post Comment</button>
+      </form>
+      <div id="comments-list" class="mt-6 space-y-4"></div>
+    </section>
+  </main>
 
-    <footer class="bg-gray-800 text-center py-6 text-gray-500 text-sm mt-10">
-      © 2025 GameVerse.
-    </footer>
-  </body>
+  <footer class="text-center text-gray-400 py-6 border-t border-gray-700 mt-12">
+    &copy; 2025 GameVerse. All rights reserved.
+  </footer>
+
+  <script src="comments.js"></script>
+</body>
 </html>
