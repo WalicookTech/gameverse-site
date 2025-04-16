@@ -42,11 +42,6 @@ form.addEventListener('submit', async (e) => {
     return;
   }
 
-  if (score > 1000000) {
-    status.textContent = "Nice try 😏 — score too high to be real.";
-    return;
-  }
-
   try {
     await addDoc(collection(db, "scores"), {
       game,
@@ -57,7 +52,6 @@ form.addEventListener('submit', async (e) => {
     });
     status.textContent = "Score submitted successfully!";
     form.reset();
-    window.location.href = "leaderboard.html";
   } catch (err) {
     status.textContent = "Error submitting score: " + err.message;
   }
