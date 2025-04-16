@@ -2,31 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leaderboard – GameVerse</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+  <script defer src="login.js"></script>
+  <script defer src="leaderboard.js"></script>
 </head>
-<body>
-  <header>
-    <h1>🎮 GameVerse</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="game.html">Games</a>
-      <a href="blog.html">Blog</a>
-      <a href="leaderboard.html" class="active">Leaderboard</a>
-      <a href="login.html">Login</a>
-    </nav>
+<body class="bg-gray-900 text-white min-h-screen">
+  <header class="flex justify-between items-center p-4 bg-gray-800 shadow-md">
+    <h1 class="text-2xl font-bold">🏆 Leaderboard</h1>
+    <div id="user-info" class="flex items-center gap-2"></div>
   </header>
-  <main>
-    <section class="leaderboard">
-      <h2>🏆 Leaderboard</h2>
-      <table>
-        <thead><tr><th>Player</th><th>Game</th><th>Score</th><th>Date</th></tr></thead>
-        <tbody><tr><td>Alice</td><td>Pixel Racer</td><td>9820</td><td>2025-04-15</td></tr></tbody>
-      </table>
-    </section>
+
+  <main class="p-6">
+    <h2 class="text-3xl font-semibold mb-4 text-center">Live Leaderboard</h2>
+    <div id="leaderboard" class="space-y-2 bg-gray-800 p-4 rounded-lg shadow-md max-w-xl mx-auto"></div>
   </main>
-  <footer><p>&copy; 2025 GameVerse</p></footer>
 </body>
 </html>
