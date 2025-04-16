@@ -5,22 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Leaderboard</title>
   <link rel="icon" type="image/png" href="favicon.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
   <script defer src="login.js"></script>
   <script defer src="leaderboard.js"></script>
 </head>
-<body class="bg-gray-900 text-white min-h-screen">
-  <header class="flex justify-between items-center p-4 bg-gray-800 shadow-md">
-    <h1 class="text-2xl font-bold">🏆 Leaderboard</h1>
-    <div id="user-info" class="flex items-center gap-2"></div>
+<body>
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:1rem;background:#222;color:#fff;">
+    <h1>🏆 Leaderboard</h1>
+    <div id="user-info" style="display:flex;align-items:center;gap:10px;"></div>
   </header>
 
-  <main class="p-6">
-    <h2 class="text-3xl font-semibold mb-4 text-center">Live Leaderboard</h2>
-    <div id="leaderboard" class="space-y-2 bg-gray-800 p-4 rounded-lg shadow-md max-w-xl mx-auto"></div>
+  <main style="padding:2rem;">
+    <h2>Live Leaderboard</h2>
+    <div id="leaderboard" style="margin-top:1rem;"></div>
   </main>
 </body>
 </html>

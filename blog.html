@@ -2,40 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog – GameVerse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | GameVerse</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
   <header>
-    <h1>🎮 GameVerse</h1>
+    <h1>GameVerse</h1>
     <nav>
       <a href="index.html">Home</a>
-      <a href="game.html">Games</a>
-      <a href="blog.html" class="active">Blog</a>
       <a href="leaderboard.html">Leaderboard</a>
       <a href="login.html">Login</a>
     </nav>
   </header>
-  <main>
-    <section class="blog-posts">
-      <h2>Latest Blog Posts</h2>
+  <main class="blog-page">
+    <h2>Latest Blog Posts</h2>
+    <div class="blog-posts">
       <article>
-        <h3>Top 5 Retro Games of 2025</h3>
-        <p>A look back at the best indie pixel games that hit the scene this year.</p>
-        <p><em>Posted on April 12, 2025</em></p>
+        <h3>Welcome to GameVerse!</h3>
+        <p>Here's what you can expect from our new gaming community...</p>
       </article>
-    </section>
+      <article>
+        <h3>Top 5 Indie Games This Month</h3>
+        <p>We’ve handpicked some hidden gems for you to check out...</p>
+      </article>
+      <article>
+        <h3>Update: Leaderboard System Now Live!</h3>
+        <p>You can now compete and track your scores with others!</p>
+      </article>
+    </div>
     <section class="comments">
-      <h2>Comments</h2>
+      <h3>Leave a Comment</h3>
       <form>
-        <input type="text" placeholder="Your name" required />
-        <textarea placeholder="Leave a comment..." required></textarea>
+        <label>Name:<input type="text" required></label>
+        <label>Comment:<textarea required></textarea></label>
         <button type="submit">Post Comment</button>
       </form>
+      <div class="comment-list">
+        <p><strong>Alice:</strong> Love this blog! Can’t wait to play more games.</p>
+        <p><strong>GamerGuy:</strong> That leaderboard update is fire 🔥</p>
+      </div>
     </section>
   </main>
-  <footer><p>&copy; 2025 GameVerse</p></footer>
+  <footer>
+    <p>&copy; 2025 GameVerse</p>
+  </footer>
 </body>
 </html>
