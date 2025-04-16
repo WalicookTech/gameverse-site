@@ -1,38 +1,55 @@
-// login.js with user info display and logout
+// login.js (Firebase Auth Integration)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
-// TODO: Replace with your Firebase config
+// 🔥 Replace with your Firebase project config!
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
-  authDomain: "your-project-id.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project-id.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "XXXXXXX",
+  appId: "APP_ID",
 };
 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-// Show user info and logout
-auth.onAuthStateChanged((user) => {
-  const userInfo = document.getElementById("user-info");
+// DOM Elements
+const form = document.querySelector("form");
+const emailInput = document.querySelector("#email");
+const passwordInput = document.querySelector("#password");
 
+// Handle form submit
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = emailInput.value;
+  const password = passwordInput.value;
+
+  // Try login first, fallback to signup
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => alert("Logged in!"))
+    .catch(() => {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => alert("Account created and logged in!"))
+        .catch((err) => alert("Error: " + err.message));
+    });
+});
+
+// Track login state
+onAuthStateChanged(auth, (user) => {
   if (user) {
-    const displayName = user.displayName || user.email;
-    const photoURL = user.photoURL;
-
-    userInfo.innerHTML = `
-      <img src="${photoURL}" alt="User Photo" style="width:32px;height:32px;border-radius:50%;margin-right:8px;">
-      <span>${displayName}</span>
-      <button onclick="logout()">Logout</button>
-    `;
+    console.log("User logged in:", user.email);
   } else {
-    userInfo.innerHTML = `<a href="login.html">Login</a>`;
+    console.log("User logged out");
   }
 });
 
-function logout() {
-  auth.signOut().then(() => {
-    location.reload();
-  });
-}
+// Optional: Add logout button support
+// signOut(auth).then(() => alert("Logged out"));

@@ -4,13 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - GameVerse</title>
-  <link rel="icon" href="favicon.png" />
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
-  <h1>Login to GameVerse</h1>
-  <button id="google-login">Continue with Google</button>
-  <script src="login.js"></script>
+  <header>
+    <h1>GameVerse</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="game.html">Games</a>
+      <a href="blog.html">Blog</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="login.html" class="active">Login</a>
+    </nav>
+  </header>
+
+  <main class="auth-form">
+    <h2>Login or Sign Up</h2>
+    <form>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" required />
+      <button type="submit">Continue</button>
+    </form>
+  </main>
+
+  <script type="module" src="login.js"></script>
 </body>
 </html>
