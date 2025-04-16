@@ -1,6 +1,6 @@
-// login.js with user info display and logout
+// login.js
 
-// TODO: Replace with your Firebase config
+// TODO: Replace this with your actual Firebase config!
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "your-project-id.firebaseapp.com",
@@ -10,29 +10,21 @@ const firebaseConfig = {
   appId: "YOUR_APP_ID"
 };
 
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
 
-// Show user info and logout
-auth.onAuthStateChanged((user) => {
-  const userInfo = document.getElementById("user-info");
+// Google login
+const googleLoginBtn = document.getElementById("google-login");
 
-  if (user) {
-    const displayName = user.displayName || user.email;
-    const photoURL = user.photoURL;
-
-    userInfo.innerHTML = `
-      <img src="${photoURL}" alt="User Photo" style="width:32px;height:32px;border-radius:50%;margin-right:8px;">
-      <span>${displayName}</span>
-      <button onclick="logout()">Logout</button>
-    `;
-  } else {
-    userInfo.innerHTML = `<a href="login.html">Login</a>`;
-  }
+googleLoginBtn?.addEventListener("click", () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then(result => {
+      console.log("User signed in:", result.user);
+      alert(`Welcome, ${result.user.displayName || "Player"}!`);
+    })
+    .catch(error => {
+      console.error("Google sign-in error:", error);
+      alert("Google sign-in failed. Please try again.");
+    });
 });
-
-function logout() {
-  auth.signOut().then(() => {
-    location.reload();
-  });
-}

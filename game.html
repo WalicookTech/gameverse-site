@@ -2,51 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Galaxy Defenders | GameVerse</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Game Detail - GameVerse</title>
+  <link rel="icon" href="favicon.png" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js"></script>
+  <script src="submitScore.js" defer></script>
 </head>
 <body>
-  <header>
-    <h1>GameVerse</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="blog.html">Blog</a>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="login.html">Login</a>
-    </nav>
-  </header>
-  <main class="game-detail">
-    <h2>Galaxy Defenders</h2>
-    <p>Blast aliens in this epic space shooter. Defend your ship, upgrade weapons, and survive the galactic waves!</p>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Game Trailer" allowfullscreen></iframe>
-    </div>
-    <section class="ratings">
-      <h3>Rating: ⭐⭐⭐⭐☆</h3>
-      <p>Based on 1,204 player reviews.</p>
-    </section>
-    <section class="reviews">
-      <h3>Player Reviews</h3>
-      <ul>
-        <li><strong>PlayerOne:</strong> "Absolutely addictive gameplay!"</li>
-        <li><strong>SciFiFan:</strong> "The visuals are stunning. More levels please!"</li>
-      </ul>
-    </section>
-    <section class="download">
-      <a href="downloads/galaxy-defenders.zip" class="button">Download Game</a>
-    </section>
-    <section class="leaderboard-preview">
-      <h3>Top Scores</h3>
-      <ul>
-        <li>PlayerOne - 9500 pts</li>
-        <li>NoobSlayer - 8200 pts</li>
-        <li>ZeldaFan99 - 7600 pts</li>
-      </ul>
-    </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 GameVerse</p>
-  </footer>
+  <h1>Game Title</h1>
+  <p>Description of the game...</p>
+
+  <h2>Submit Your Score</h2>
+  <form id="scoreForm">
+    <label for="game">Game:</label>
+    <input type="text" id="game" value="Game Title" readonly /><br><br>
+
+    <label for="score">Your Score:</label>
+    <input type="number" id="score" required /><br><br>
+
+    <button type="submit">Submit Score</button>
+  </form>
+
+  <div id="status"></div>
 </body>
 </html>
