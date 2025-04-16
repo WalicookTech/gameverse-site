@@ -18,9 +18,66 @@
     <div id="user-info" class="flex items-center gap-2"></div>
   </header>
 
-  <main class="p-6">
+  <main class="p-6 max-w-xl mx-auto">
+    <h2 class="text-3xl font-semibold mb-6 text-center">Submit Your Score</h2>
+
+    <form id="score-form" class="bg-gray-800 p-4 rounded-lg shadow-md space-y-4 mb-8">
+      <div>
+        <label class="block mb-1 text-sm">Display Name</label>
+        <input type="text" id="displayName" disabled class="w-full px-3 py-2 rounded bg-gray-700 text-white border border-gray-600" />
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Game</label>
+        <select id="gameSelect" class="w-full px-3 py-2 rounded bg-gray-700 text-white border border-gray-600">
+          <option value="Space Invaders">Space Invaders</option>
+          <option value="Pixel Racer">Pixel Racer</option>
+          <option value="Zombie Rush">Zombie Rush</option>
+        </select>
+      </div>
+      <div>
+        <label class="block mb-1 text-sm">Score</label>
+        <input type="number" id="scoreInput" required class="w-full px-3 py-2 rounded bg-gray-700 text-white border border-gray-600" />
+      </div>
+      <button type="submit" class="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded text-white font-semibold transition">
+        Submit Score
+      </button>
+    </form>
+
     <h2 class="text-3xl font-semibold mb-4 text-center">Live Leaderboard</h2>
-    <div id="leaderboard" class="space-y-2 bg-gray-800 p-4 rounded-lg shadow-md max-w-xl mx-auto"></div>
+    <div id="leaderboard" class="space-y-2 bg-gray-800 p-4 rounded-lg shadow-md"></div>
   </main>
+
+  <script>
+    firebase.auth().onAuthStateChanged(user => {
+      const nameInput = document.getElementById('displayName');
+      if (user) {
+        nameInput.value = user.displayName || user.email;
+      } else {
+        nameInput.value = "Guest (Login required to submit)";
+        document.getElementById('score-form').style.display = 'none';
+      }
+    });
+
+    document.getElementById('score-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const user = firebase.auth().currentUser;
+      if (!user) return;
+
+      const db = firebase.firestore();
+      const game = document.getElementById('gameSelect').value;
+      const score = parseInt(document.getElementById('scoreInput').value);
+      const name = user.displayName || user.email;
+
+      await db.collection("scores").add({
+        game,
+        score,
+        name,
+        uid: user.uid,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      document.getElementById('score-form').reset();
+    });
+  </script>
 </body>
 </html>
