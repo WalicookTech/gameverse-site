@@ -1,42 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Profile | GameVerse</title>
-  <link rel="icon" href="favicon.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script type="module" src="js/profile.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GameVerse - Explore, Play, Compete</title>
+  <meta name="description" content="GameVerse is your hub for video games. Play, review, compete, and connect with the gaming community.">
+  <meta property="og:title" content="GameVerse - Explore, Play, Compete">
+  <meta property="og:description" content="Join the GameVerse community. Play games, leave reviews, track scores, and more.">
+  <meta property="og:image" content="https://walicooktech.github.io/gameverse-site/preview.png">
+  <meta property="og:url" content="https://walicooktech.github.io/gameverse-site/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800">
-
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold">My Profile</h1>
-    <div id="user-info" class="flex items-center gap-3"></div>
-  </header>
-
-  <main class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow mt-6 space-y-6">
-    <section id="profile-section">
-      <h2 class="text-xl font-semibold mb-2">Profile Info</h2>
-      <div class="flex items-center gap-4">
-        <img id="avatar" src="" class="w-20 h-20 rounded-full border" alt="Avatar">
-        <div>
-          <div id="username" class="font-semibold text-lg"></div>
-          <label class="block mt-2">Bio:
-            <textarea id="bio" class="mt-1 p-2 border rounded w-full" rows="3" placeholder="Write something about yourself..."></textarea>
-          </label>
-          <button id="save-bio" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Save Bio</button>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2 class="text-xl font-semibold mb-2">Your Scores</h2>
-      <ul id="score-list" class="space-y-2 text-sm"></ul>
-    </section>
+<body class="bg-gray-100 text-gray-900">
+  <header class="bg-gray-900 text-white p-4 text-center text-xl font-semibold">GameVerse - Profile</header>
+  <main class="p-6">
+    <h1 class="text-2xl font-bold mb-4">Profile Page</h1>
+    <p>Page content goes here...</p>
   </main>
-
-  <script type="module" src="js/profile.js"></script>
+  
+  <footer class="text-center p-4 bg-gray-800 text-white mt-12">
+    <p class="mb-2">Share this project:</p>
+    <div class="flex justify-center space-x-4">
+      <a href="https://twitter.com/intent/tweet?url=https://walicooktech.github.io/gameverse-site/" target="_blank" class="hover:text-blue-400">Twitter</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://walicooktech.github.io/gameverse-site/" target="_blank" class="hover:text-blue-500">Facebook</a>
+      <a href="https://reddit.com/submit?url=https://walicooktech.github.io/gameverse-site/" target="_blank" class="hover:text-orange-400">Reddit</a>
+      <a href="https://github.com/WalicookTech/gameverse-site" target="_blank" class="hover:text-gray-400">GitHub</a>
+    </div>
+  </footer>
 </body>
+
 </html>
